@@ -3,13 +3,10 @@ package cz.unknown.domain.simpletracker
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -55,7 +52,6 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mm)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -65,20 +61,7 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
             addMarkerFragment.show(supportFragmentManager, "AddMarkerFragment")
         }
         poprve = true
-
-        //loadPrefs() // zde jsem to pridal
-
     }
-
-    /*override fun onResume() {
-        super.onResume()
-        if (!checkedForLocationPermission) {
-            Utils.requestPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, LOCATION_REQUEST_CODE)
-            checkedForLocationPermission = true
-        }
-        setUpMapIfNeeded()
-    }*/
-
 
     override fun onDialogEditBtnClick(id: String, title: String, description: String, path: String) {
         for (marker in markersList) {
@@ -89,7 +72,6 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
                 lastShownInfoWindowMarker?.showInfoWindow()
             }
         }
-       // updatePrefs()
     }
 
     override fun onDialogDeleteBtnClick(id: String) {
@@ -108,7 +90,6 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
                 marker.remove()
             }
         }
-       // updatePrefs()
     }
 
     override fun onDialogAddBtnClick(title: String, description: String, path: String) {
@@ -118,7 +99,6 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
             tempMarker.tag = tempMarker.id
             markersMapList.add(tempMarker)
             markersList.add(MyMarker(tempMarker.id, tempMarker.title, tempMarker.snippet, path, tempMarker.position.longitude, tempMarker.position.latitude))
-            //updatePrefs()
         }
     }
 
@@ -143,7 +123,6 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
     private fun getUserLocation() {
         if (locationPermitted) {
             fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
-                // Got last known location. In some rare situations this can be null.
                 if (location != null) {
                     lastLocation = location
                     currentLatLng = LatLng(lastLocation.latitude, lastLocation.longitude)
@@ -156,24 +135,17 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
     private fun setUpMap() {
 
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            // set "my location" icon
             mMap.isMyLocationEnabled = true
             locationPermitted = true
             getUserLocation()
-
         } else {
-            //PermissionUtils.requestPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, LOCATION_REQUEST_CODE)
             ActivityCompat.requestPermissions(this, permissions, ALL_PERMISSIONS)
         }
 
         mMap.setOnMapLongClickListener { point ->
-            //remove previously placed Marker
-
             if (marker != null) {
                 marker!!.remove()
             }
-
-            //place marker where user just clicked
             marker = mMap.addMarker(MarkerOptions().position(point).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
         }
 
@@ -282,10 +254,8 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
     private fun updatePrefs(){
        val prefs = this.getSharedPreferences(SHARED_PREFS,MODE_PRIVATE)
         var markersListArray = Gson().toJsonTree(markersList).asJsonArray
-      //  var markersMapListArray = Gson().toJsonTree(markersMapList).asJsonArray
         val editor = prefs.edit()
         editor.putString(KEY_MYMARKER,markersListArray.toString())
-        //editor.putString(KEY_MARKERS,markersMapListArray.toString())
         editor.apply()
     }
 

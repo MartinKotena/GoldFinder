@@ -3,12 +3,6 @@ package cz.unknown.domain.simpletracker
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.content.Intent
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 
 
