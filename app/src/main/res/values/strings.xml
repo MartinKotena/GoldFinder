@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Gold Finder</string>
+    <string name="MK">List offline</string>
+    <string name="MM">Start</string>
+    <string name="maps_save">Save position</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="btn_dialog_add">Add</string>
+    <string name="btn_dialog_edit">Edit</string>
+    <string name="btn_dialog_delete">Delete</string>
+    <string name="et_dialog_title">Title</string>
+    <string name="et_dialog_desc">Description</string>
+    <string name="add_view_photo">Add or view photo</string>
+</resources>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "163269947628",
+    "firebase_url": "https://goldfinder-16e50.firebaseio.com",
+    "project_id": "goldfinder-16e50",
+    "storage_bucket": "goldfinder-16e50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163269947628:android:7f0d7bb42dc7a5a1",
+        "android_client_info": {
+          "package_name": "cz.unknown.domain.simpletracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163269947628-7ans5v13hh3g5jsmnd5kl4goqj78773m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cz.unknown.domain.simpletracker",
+            "certificate_hash": "8f2ebd421e632f18fe8b4d4fc76152d0b060c872"
+          }
+        },
+        {
+          "client_id": "163269947628-sc4glvbd1mi5cgi8uo41dbmpqq8rji4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPSOTpeMBRTef4W_mk6ZkaHpIM6Cw6nYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163269947628-sc4glvbd1mi5cgi8uo41dbmpqq8rji4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
