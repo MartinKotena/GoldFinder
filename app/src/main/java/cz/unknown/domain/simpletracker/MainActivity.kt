@@ -1,8 +1,11 @@
 package cz.unknown.domain.simpletracker
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.content.Intent
+import android.net.wifi.WifiManager
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -19,10 +22,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val wifimanager: WifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
         btnMM.setOnClickListener {
             loadPrefs()
+            if (wifimanager.isWifiEnabled){
+                Toast.makeText(this,"Wifi is enabled.",Toast.LENGTH_LONG).show()
+            }else
+            {
+                wifimanager.setWifiEnabled(true)
+                Toast.makeText(this,"Wifi was disabled -> now is enabled.",Toast.LENGTH_LONG).show()
+            }
             var intent1 = Intent(this, MMActivity::class.java)
             intent1.putExtra(shrdprefs, markers)
             startActivity(intent1)
