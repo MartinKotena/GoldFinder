@@ -20,6 +20,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.bumptech.glide.Glide
+import com.muddzdev.styleabletoastlibrary.StyleableToast
 import kotlinx.android.synthetic.main.dialog_window.*
 import kotlinx.android.synthetic.main.dialog_window.view.*
 import kotlinx.android.synthetic.main.include_dialog_add.view.*
@@ -92,6 +93,7 @@ class AddMarkerFragment: DialogFragment(){
         if (requestCode == PermissionUtils.REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
             Glide.with(this).load(PermissionUtils.mCurrentPhotoPath1).into(ivPicture)
             mCurrentPhotoPath = PermissionUtils.mCurrentPhotoPath1
+            StyleableToast.makeText(activity, "Photo is saved in " + mCurrentPhotoPath.substring(20,43), R.style.toastStorageOK).show()
             GlobalVariable.deleteImage = true
             ibDeleteImage.visibility = View.VISIBLE
 

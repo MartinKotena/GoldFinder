@@ -17,6 +17,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
 import android.widget.Toast;
 
+
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -62,7 +65,7 @@ public class PermissionUtils {
             try {
                 photoFile = createImageFile1();
             } catch (IOException e) {
-                Toast.makeText(activity.getActivity().getApplicationContext(), "Nejede", Toast.LENGTH_SHORT).show();
+                StyleableToast.makeText(activity.getActivity().getApplicationContext(),"Nejede", R.style.toastCameraDenied).show();
             }
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(activity.getActivity().getApplicationContext(),
@@ -70,7 +73,6 @@ public class PermissionUtils {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 activity.startActivityForResult(takePictureIntent,REQUEST_TAKE_PHOTO);
-
             }
         }
     }
