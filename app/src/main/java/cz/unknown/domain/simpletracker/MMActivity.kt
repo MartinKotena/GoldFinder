@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.muddzdev.styleabletoastlibrary.StyleableToast
 import kotlinx.android.synthetic.main.activity_mm.*
 import kotlinx.android.synthetic.main.info_window.view.*
 import java.io.File
@@ -193,31 +194,31 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
             for (i in 0 until permissions.size) {
                 if (permissions[i].equals(Manifest.permission.ACCESS_FINE_LOCATION)) {
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Granted GPS", R.style.toastGPSOK).show()
                         setUpMap()
                     } else {
-                        Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Denied GPS", R.style.toastGPSDenied).show()
                     }
                 }else if(permissions[i].equals(Manifest.permission.CAMERA)){
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Granted CAMERA", R.style.toastCameraOK).show()
                         setUpMap()
                     } else {
-                        Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Denied CAMERA", R.style.toastCameraDenied).show()
                     }
                 }else if(permissions[i].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Granted WRITE STORAGE", R.style.toastStorageOK).show()
                         setUpMap()
                     } else {
-                        Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Denied WRITE STORAGE", R.style.toastStorageDenied).show()
                     }
                 }else if(permissions[i].equals(Manifest.permission.READ_EXTERNAL_STORAGE)){
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Granted READ STORAGE", R.style.toastStorageOK).show()
                         setUpMap()
                     } else {
-                        Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show()
+                        StyleableToast.makeText(this,"Denied READ STORAGE", R.style.toastStorageDenied).show()
                     }
                 }
             }
@@ -280,7 +281,7 @@ class MMActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerCl
     private fun turnGPSOn(){
         val manager = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            Toast.makeText(this,"Gps is not enabled, please turn it ON",Toast.LENGTH_LONG).show()
+            StyleableToast.makeText(this,"Gps is not enabled, please turn it ON", R.style.toastGPS).show()
         }
     }
 

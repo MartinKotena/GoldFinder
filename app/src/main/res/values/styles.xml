@@ -8,4 +8,70 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="toastOK">
+        <item name="colorBackground">#94ffab</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_wifion</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="toastNotOk">
+        <item name="colorBackground">#c00000</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_wifioff</item>
+        <item name="iconRight">@drawable/ic_wifion</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="toastGPS">
+        <item name="colorBackground">#c00000</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_gpsoff</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="toastCameraDenied">
+        <item name="colorBackground">#c00000</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_camera</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="toastGPSDenied">
+        <item name="colorBackground">#c00000</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_gpsoff</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="toastStorageDenied">
+        <item name="colorBackground">#c00000</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_storage</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="toastCameraOK">
+        <item name="colorBackground">#94ffab</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_camera</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="toastStorageOK">
+        <item name="colorBackground">#94ffab</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_storage</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="toastGPSOK">
+        <item name="colorBackground">#94ffab</item>
+        <item name="textColor">#000</item>
+        <item name="iconLeft">@drawable/ic_gpson</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
 </resources>

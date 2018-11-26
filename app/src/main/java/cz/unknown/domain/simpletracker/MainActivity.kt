@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.content.Intent
 import android.net.wifi.WifiManager
 import android.widget.Toast
+import com.muddzdev.styleabletoastlibrary.StyleableToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -27,11 +28,11 @@ class MainActivity : AppCompatActivity() {
         btnMM.setOnClickListener {
             loadPrefs()
             if (wifimanager.isWifiEnabled){
-                Toast.makeText(this,"Wifi is enabled.",Toast.LENGTH_LONG).show()
+                StyleableToast.makeText(this,"Wifi is enabled", R.style.toastOK).show()
             }else
             {
                 wifimanager.setWifiEnabled(true)
-                Toast.makeText(this,"Wifi was disabled -> now is enabled.",Toast.LENGTH_LONG).show()
+                StyleableToast.makeText(this,"Wifi was disabled -> now is enabled.", R.style.toastNotOk).show()
             }
             var intent1 = Intent(this, MMActivity::class.java)
             intent1.putExtra(shrdprefs, markers)
